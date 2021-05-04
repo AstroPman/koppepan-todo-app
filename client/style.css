@@ -1,0 +1,325 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+header {
+    font-size: larger;
+    font-weight: bold;
+    margin: 10px 10px 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+header > div {
+    padding: 10px
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+}
+
+img {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width:  40px;       /* ※縦横を同値に */
+    height: 40px;       /* ※縦横を同値に */
+}
+
+div.task_list {
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    border-radius: 10px;
+    background-color: rgba(214, 214, 214, 0.527);
+    box-shadow: 0px -10px 10px 3px rgb(0 0 0 / 18%) inset;
+    padding: 10px;
+    height: 700px;
+    overflow: scroll;
+}
+
+div.task {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    width:auto;
+    margin: 10px;
+    background-color: white;
+    padding:10px;
+    border-radius: 5px;
+    border-top: solid 3px lightseagreen;
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.5);
+}
+
+div.task.checked {
+        color: rgba(128, 128, 128, 0.466);
+        transition: 0.4s;
+        border-top: solid 3px rgba(32, 178, 171, 0.342);
+    }
+div.task.checked > div.description {
+    color: rgba(128, 128, 128, 0.301);
+    transition: 0.4s;
+}
+
+
+div.title_part {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+div.checkbox {
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+div.title {
+    flex-grow: 20;
+    width: 200px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+div.setting {
+    flex-grow: 5;
+    padding-right: 5px;
+    justify-content: center;
+    position: relative;
+}
+
+
+div.description{
+    width: 90%;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    border-color: grey;
+    color: grey;
+    background-color: white;
+    font-size: 80%;
+}
+
+/* Task setting Button and Menu */
+label.setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.setting span,
+.setting span:before,
+.setting span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 3px;
+    border-radius: 50%;
+    background-color: grey;
+    position: absolute;
+    transition: 0.4s;
+}
+.setting span:before {
+    right: 5px;
+    
+}
+.setting span:after {
+    left: 5px;
+}
+
+.task_content {
+    /* display: block; */
+    visibility: visible;
+    opacity: 1;
+    width: 130px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 80;
+    border-radius: 10px;
+    background-color: rgba(39, 38, 38, 0.747);
+    box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.5);
+    transition: 0.4s;/*アニメーション設定*/
+    padding: 10px 0;
+}
+
+.task_content.hidden {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;/*アニメーション設定*/
+}
+
+.task_content ul {
+    margin: 0;
+    
+    color: white;
+    padding: 0;
+}
+.task_content ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0;
+}
+.task_content ul li div {
+    flex-grow: 4;
+    padding-left: 5px;
+}
+.task_content ul li i {
+    padding-left: 20px;
+    flex-grow: 1;
+}
+
+.fa-trash-alt {
+    color: rgb(243, 75, 75);
+}
+.fa-trash-alt ~ div{
+    color: rgb(243, 75, 75);
+}
+
+/* input.setting:checked ~ .task_content {
+    display: block;
+    transition: 0.5s;
+} */
+
+
+
+
+/* Task Checkbox Style */
+input[type=checkbox] {
+    display: none;
+}
+label.checkbox {
+    position: relative; /* ボックスの位置を指定する */
+    padding: 0 0 0 30px; /* ボックス内側の余白を指定する */
+}
+label.checkbox:after, label.checkbox:before {
+position: absolute; /* ボックスの位置を指定する */
+content: ""; /* ボックスのコンテンツ */
+display: block; /* ブロックレベル要素化する */
+top: 50%; /* 上部から配置の基準位置を決める */
+left: 0px; /* 左から配置の基準位置を決める */
+margin-top: -10px; /* チェック枠の位置 */
+width: 20px; /* ボックスの横幅を指定する */
+height: 20px; /* ボックスの高さを指定する */
+border: 2px solid rgb(68, 148, 144); /* ボックスの境界線を実線で指定する */
+border-radius: 50%; /* ボックスの角丸を指定する */
+}
+label.checkbox:after {
+    border-radius: 0%;
+    transform: rotate(45deg);
+    width: 30%;
+    left: 9px;
+    top: 4px;
+    border-top: 0;
+    border-left: 0;
+    /* border-bottom: solid 3px white;
+    border-right: solid 3px white; */
+    border-bottom: solid 3px  white;
+    border-right: solid 3px  white;
+    opacity: 0;
+    transition: 0.4s;
+}
+input[type=checkbox]:checked + label.checkbox:after {
+    opacity: 1; /* 要素を表示する */
+    transition: 0.4s;
+}
+input[type=checkbox]:checked + label.checkbox:before {
+    background-color: rgb(68, 148, 144);
+    transition: 0.4s;
+}
+
+
+div.add_button {
+    width: 60px;
+    height: 60px;
+    margin: 10px auto;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: rgb(68, 148, 144);
+    box-shadow: 0px -10px 10px 3px rgb(0 0 0 / 18%);
+    color: white;
+    border-radius: 50%;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left:calc(50% - 60px/2);
+}
+
+
+/* Modal Style */
+#open,
+#save {
+    cursor: pointer;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    padding: 12px;
+    margin: 16px auto 0;
+    background-color: rgb(68, 148, 144);
+    color: white;
+}
+#mask {
+    background:rgba(255, 255, 255, 0.445);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+}
+#modal {
+    background: #fff;
+    color: #555;
+    width: 100%;
+    padding: 40px;
+    border-radius: 4px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 3;
+    transition: 0.4s;
+}  
+#modal p {
+    margin: 0 0 20px;
+}
+#mask.hidden {
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+}
+#modal.hidden {
+    transform: translate(0, -500px);
+}
+#modal_header{
+    margin: 0;
+}
+label {  
+    font-size: 100%;
+}
+.todo_title {
+    border: none;
+    border-bottom: 1px solid #d1d1d1;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 8px
+}
+textarea {
+    border: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 8px
+}

@@ -1,0 +1,18 @@
+{
+  "name": "koppepan-todo-app-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api.js --trace-warnings"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "date-utils": "^1.2.21",
+    "express": "^4.17.1",
+    "pg": "^8.6.0"
+  }
+}

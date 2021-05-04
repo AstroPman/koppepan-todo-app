@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" charset="utf-8">
+    <title class="title">ToDo List Top Page</title>
+
+    <link rel="stylesheet" href="sanitize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>    
+</head>
+<div id="mask" class="hidden"></div>
+        <section id="modal" class="hidden">
+            <form name="todo_form">
+                <div id="modal_header">
+                    <label for="todo_title">Title:</label>
+                    <input id="todo_title" class="todo_title">
+                </div>
+                <br>
+                <div id="modal_description">
+                    <label for="todo_description">Description(optinal):</label>
+                    <textarea id="todo_description" name="description" rows="4" cols="40"></textarea>
+                </div>
+                <div id="modal_id">
+                    <input id="todo_id" type="hidden" value="">
+                </div>
+            </form>
+            <div id="save">
+                Save
+            </div>
+        </section>
+<body>
+    <header class="header">
+        <img class="image" src="" width="30" height="30">
+        <div>What's up</div>
+    </header>
+    <div id="task_list" class="task_list"></div>
+    <footer>
+        <div id="add_button" class="add_button">+</div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="index.js" type="module"></script> 
+</body>
+</html>
